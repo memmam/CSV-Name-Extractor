@@ -99,8 +99,7 @@ namespace CSV_Name_Extractor
                         do
                         {
                             Console.Clear();
-                            Console.WriteLine("Uh-oh! YouTube changed the format of the .csv file! I can't guarantee the output will be correct.\n");
-                            Console.WriteLine("Please send the .csv file to Squid and she will send you an updated version of the program.\n");
+                            Console.WriteLine("Uh-oh! YouTube changed the format of the .csv file!\n");
                             Console.WriteLine("The first entry of the list was '" + names[0] + "', expected member, members, name, or names\n");
                             Console.WriteLine("Press 1 to exit, press 2 to continue and keep the first entry, press 3 to continue and remove the first entry.");
 

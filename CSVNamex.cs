@@ -89,7 +89,7 @@ namespace CSV_Name_Extractor
 
             try
             {
-                using (var reader = new StreamReader(args[0]))
+                using (StreamReader reader = new StreamReader(args[0]))
                 {
                     List<string> names = new List<string>();
 

@@ -25,6 +25,25 @@ namespace CSV_Name_Extractor
 
             string outfile = args.Length > 1 ? args[1] : "out.txt";
 
+            if (!outfile.EndsWith(".txt", StringComparison.OrdinalIgnoreCase))
+            {
+                Console.Clear();
+                Console.WriteLine(outfile + " is not a valid filename. Please enter a filename that ends in '.txt', and press enter:");
+                outfile = Console.ReadLine().Trim();
+                while (!outfile.EndsWith(".txt", StringComparison.OrdinalIgnoreCase) || File.Exists(outfile))
+                {
+                    if (!outfile.EndsWith(".txt", StringComparison.OrdinalIgnoreCase))
+                    {
+                        Console.WriteLine("\nFilename does not end in '.txt'. Please try again.");
+                    }
+                    else if (File.Exists(outfile))
+                    {
+                        Console.WriteLine("\nFile already exists. Please try again.");
+                    }
+                    outfile = Console.ReadLine().Trim();
+                }
+            }
+
             if (File.Exists(outfile))
             {
                 bool exitFlag = false;
@@ -99,7 +118,8 @@ namespace CSV_Name_Extractor
                         do
                         {
                             Console.Clear();
-                            Console.WriteLine("Uh-oh! YouTube changed the format of the .csv file!\n");
+                            Console.WriteLine("Uh-oh! YouTube changed the format of the .csv file! I can't guarantee the output will be correct.\n");
+                            Console.WriteLine("Please send the .csv file to Squid and she will send you an updated version of the program.\n");
                             Console.WriteLine("The first entry of the list was '" + names[0] + "', expected member, members, name, or names\n");
                             Console.WriteLine("Press 1 to exit, press 2 to continue and keep the first entry, press 3 to continue and remove the first entry.");
 
